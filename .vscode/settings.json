@@ -1,0 +1,10 @@
+{
+	"cSpell.words": [
+		"bindgen",
+		"developomp",
+		"fontawesome",
+		"wbtimeline",
+		"webassembly"
+	],
+	"rust-analyzer.diagnostics.disabled": ["unresolved-macro-call"]
+}

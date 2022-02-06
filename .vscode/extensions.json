@@ -1,0 +1,8 @@
+{
+	"recommendations": [
+		"aaron-bond.better-comments",
+		"naumovs.color-highlight",
+		"esbenp.prettier-vscode",
+		"matklad.rust-analyzer"
+	]
+}

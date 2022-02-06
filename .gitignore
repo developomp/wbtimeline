@@ -1,0 +1,11 @@
+/_/
+
+/target/
+/bin/
+/pkg/
+/dist/
+/node_modules/
+
+.DS_Store
+**/*.rs.bk
+wasm-pack.log
