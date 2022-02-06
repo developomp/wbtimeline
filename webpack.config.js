@@ -5,11 +5,8 @@ const CopyWebpackPlugin = require("copy-webpack-plugin")
 const distPath = path.resolve(__dirname, "dist")
 module.exports = (env, argv) => {
 	return {
-		experiments: {
-			asyncWebAssembly: true,
-		},
 		devServer: {
-			static: distPath,
+			contentBase: distPath,
 			compress: argv.mode === "production",
 			port: 8000,
 		},
@@ -36,5 +33,6 @@ module.exports = (env, argv) => {
 				extraArgs: "--no-typescript",
 			}),
 		],
+		watch: argv.mode !== "production",
 	}
 }
