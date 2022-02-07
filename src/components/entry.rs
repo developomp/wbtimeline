@@ -14,7 +14,13 @@ pub struct Props {
 pub fn entry(props: &Props) -> Html {
     html! {
         <section class="entry">
-            <div class="marker" />
+            <div class="icon">
+                if props.data.category.eq("community") {
+                    <i class="fas fa-flag" />
+                } else if props.data.category.eq("development") {
+                    <i class="fas fa-cog" />
+                }
+            </div>
 
             <div class="item">
                 <div class="date">

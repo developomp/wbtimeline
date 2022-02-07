@@ -41,7 +41,7 @@
 			clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
 		}
 
-		.marker {
+		.icon {
 			position: absolute;
 
 			display: flex;
@@ -102,7 +102,7 @@
 					clip-path: polygon(0 0, 100% 0, 0 100%);
 				}
 
-				.marker {
+				.icon {
 					left: 26.6rem;
 				}
 
@@ -127,7 +127,7 @@
 				margin-left: auto;
 				transform: translateX(14rem);
 
-				.marker {
+				.icon {
 					left: -6.5rem;
 				}
 

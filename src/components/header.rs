@@ -5,12 +5,12 @@ pub fn header() -> Html {
     html! {
         <header>
             <h1>
-                { "War Brokers Timeline" }
+                {"War Brokers Timeline"}
             </h1>
 
-            { "Made by " }
+            {"Made by "}
             <a href="https://github.com/developomp" target="_blank">
-                { "[LP] POMP (developomp)" }
+                {"[LP] POMP (developomp)"}
             </a>
         </header>
     }
