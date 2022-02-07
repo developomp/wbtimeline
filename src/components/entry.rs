@@ -24,7 +24,9 @@ pub fn entry(props: &Props) -> Html {
 
             <div class="item">
                 <div class="date">
-                    {&props.data.date}
+                    <div>
+                        {&props.data.date}
+                    </div>
                 </div>
 
                 <div class="content">
