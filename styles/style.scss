@@ -1,15 +1,7 @@
-$background: #2d2a38;
-$component: #21202b;
-
-$text: #ededef;
-$greyText: #79797c;
-
-$item1: #2a6df4;
-$item2: #313135;
-
 @import "./anchor.scss";
 @import "./container.scss";
 @import "./header.scss";
+@import "./timeline.scss";
 
 html,
 body {
@@ -19,9 +11,13 @@ body {
 }
 
 body {
-	background: $background;
-	color: $text;
+	background: #2d2a38;
+	color: #ededef;
 
 	display: flex;
 	justify-content: center;
+}
+
+h2 {
+	font-size: 24px;
 }

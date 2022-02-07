@@ -2,7 +2,7 @@
 
 mod app;
 mod components;
-mod state;
+mod data;
 
 use wasm_bindgen::{prelude::wasm_bindgen, JsValue};
 use wee_alloc::WeeAlloc;

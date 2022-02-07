@@ -1,56 +1,29 @@
-use yew::{html, Component, Context, Html};
+use yew::{function_component, html};
 
-use crate::components::Header;
+use crate::components::{Entry, Header};
+use crate::data::Data;
 
-use crate::state::State;
+#[function_component(App)]
+pub fn app() -> Html {
+    html! {
+        <div class="container">
+            <Header />
 
-pub struct App {
-    state: State,
-}
+            <div class="timeline">
+                <Entry data={Data {
+                    date: "Mar 18, 2020".to_string(),
+                    title: "Here be item 1".to_string(),
+                    description: "Long text. Long text. Long text. Long text. Long text.".to_string(),
+                    media: None,
+                }} />
 
-pub enum Msg {
-    ToggleSomething,
-}
-
-impl Component for App {
-    type Message = Msg;
-    type Properties = ();
-
-    fn create(_ctx: &Context<Self>) -> Self {
-        let state = State {
-            is_something: false,
-        };
-
-        App { state }
-    }
-
-    fn update(&mut self, _ctx: &Context<Self>, msg: Self::Message) -> bool {
-        match msg {
-            Msg::ToggleSomething => {
-                self.state.toggle_something();
-
-                true
-            }
-        }
-    }
-
-    fn view(&self, ctx: &Context<Self>) -> Html {
-        html! {
-            <div class="container">
-                <Header />
-
-                <button onclick={ctx.link().callback(|_| Msg::ToggleSomething)}>
-                    { self.view_something() }
-                </button>
+                <Entry data={Data {
+                    date: "Mar 26, 2020".to_string(),
+                    title: "And here be item 2".to_string(),
+                    description: "Long text. Long text. Long text. Long text. Long text.".to_string(),
+                    media: None,
+                }} />
             </div>
-        }
-    }
-}
-
-impl App {
-    fn view_something(&self) -> Html {
-        html! {
-            { self.state.is_something }
-        }
+        </div>
     }
 }
