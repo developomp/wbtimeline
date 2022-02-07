@@ -11,9 +11,18 @@ pub fn app() -> Html {
 
             <div class="timeline">
                 <Entry data={Data {
-                    date: "Mar 18, 2020".to_string(),
-                    title: "Here be item 1".to_string(),
-                    description: "Long text. Long text. Long text. Long text. Long text.".to_string(),
+                    date: "Nov 13, 2017".to_string(),
+                    title: "Release of open beta for browsers".to_string(),
+                    description: "The grand beginning of the legacy.".to_string(),
+                    category: "development".to_string(),
+                    media: None,
+                    button: None,
+                }} />
+
+                <Entry data={Data {
+                    date: "Some date".to_string(),
+                    title: "Some title".to_string(),
+                    description: "Some long detailed well-written yet concise description.".to_string(),
                     category: "development".to_string(),
                     media: None,
                     button: None,

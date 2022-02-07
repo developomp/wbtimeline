@@ -43,6 +43,13 @@
 			clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
 		}
 
+		&:first-child,
+		&:last-child {
+			.icon {
+				background-color: rgb(42, 109, 244);
+			}
+		}
+
 		.icon {
 			position: absolute;
 
