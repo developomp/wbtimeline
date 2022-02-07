@@ -1,0 +1,90 @@
+[
+	{
+		"name": "Maps",
+		"data": [
+			{
+				"date": "Feb 12, 2018",
+				"title": "Temple map added"
+			},
+			{
+				"date": "Mar 13, 2018",
+				"title": "Escape map added"
+			},
+			{
+				"date": "May 21, 2020",
+				"title": "Dungeon map added"
+			}
+		]
+	},
+	{
+		"name": "Weapons",
+		"data": [
+			{
+				"date": "Feb 8, 2019",
+				"title": "Crossbow"
+			},
+			{
+				"date": "Mar 27, 2019",
+				"title": "SCAR"
+			},
+			{
+				"date": "Mar 5, 2018",
+				"title": "Minigun & Revolver"
+			}
+		]
+	},
+	{
+		"name": "Game modes",
+		"data": [
+			{
+				"date": "Jan 18, 2018",
+				"title": "Pistol only FFA deathmatch mode for the Office map only"
+			},
+			{
+				"date": "Feb 12, 2020",
+				"title": "Competitive Mode"
+			}
+		]
+	},
+	{
+		"name": "Stats page",
+		"data": [
+			{
+				"date": "Apr 3, 2018",
+				"title": "War Brokers Stats Page goes online"
+			}
+		]
+	},
+	{
+		"name": "Releases",
+		"data": [
+			{
+				"date": "Jan 18, 2018",
+				"title": "Release of open beta for steam"
+			},
+			{
+				"date": "May 07, 2020",
+				"title": "Release of open beta for android",
+				"description": "In April 25, 2020, The first image of WB android build was released, which was soon made available to everyone in May 7, 2020. (first kill made on Apr 26, 2020)"
+			},
+			{
+				"date": "Apr 25, 2020",
+				"title": "First picture of WB android build",
+				"description": "In April 25, 2020, The first image of WB android build was released",
+				"media": [
+					"https://media.discordapp.net/attachments/324984820952334336/703354394447446116/mipad4.jpg?width=875&height=656"
+				]
+			}
+		]
+	},
+	{
+		"name": "Updates",
+		"data": [
+			{
+				"date": "Feb 3, 2022",
+				"title": "v454 update",
+				"description": "- Fixed respawn area size for Cyber Tribute.\n- Added helicopter to Battle Royale map at Mountain Base."
+			}
+		]
+	}
+]
