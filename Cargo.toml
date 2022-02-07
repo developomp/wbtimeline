@@ -19,6 +19,7 @@ yew = "0.19.3"
 
 [dev-dependencies]
 wasm-bindgen-test = "0.3.29"
+comrak = "0.12.1"
 
 [dependencies.web-sys]
 version = "0.3.56"
