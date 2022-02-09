@@ -1,6 +1,4 @@
-@import "./anchor.scss";
 @import "./container.scss";
-@import "./header.scss";
 @import "./timeline.scss";
 
 // https://cdnjs.com/libraries/font-awesome
@@ -8,15 +6,36 @@
 
 html,
 body {
-	height: 100vh;
-	margin: 0;
 	padding: 0;
+	margin: 0;
+}
+
+html {
+	height: 100%;
 }
 
 body {
+	min-height: 100%;
+
 	background: #2d2a38;
 	color: #ededef;
 
 	display: flex;
 	justify-content: center;
+}
+
+a {
+	text-decoration: none;
+
+	&:hover {
+		font-weight: lighter;
+	}
+}
+
+header {
+	text-align: center;
+
+	h1 {
+		font-size: 3rem;
+	}
 }

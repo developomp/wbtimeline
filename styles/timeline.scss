@@ -1,30 +1,31 @@
 .timeline {
+	width: 100%;
+	height: 100%;
+
 	margin-top: 5rem;
 
 	// vertical line
+	// todo: fix inconsistent on different displays
 	&::before {
 		content: "";
-
 		position: absolute;
-		left: calc(50% - 20rem);
 
 		height: 100%;
 		width: 2px;
 
 		background-color: white;
+
+		left: 3rem;
 	}
 
 	.entry {
-		position: relative;
-		left: 6.1rem;
-		width: 80%;
-
-		display: flex;
-
-		border-radius: 4px 0 4px 4px;
-
 		padding: 1rem;
+
+		margin-left: 6.4rem;
+		margin-right: 1rem;
 		margin-bottom: 5rem;
+
+		border-radius: 0 6px 6px 6px;
 
 		background-color: #21202b;
 
@@ -36,13 +37,13 @@
 			height: 1rem;
 			width: 1rem;
 
-			top: 0;
-			left: -13px;
+			transform: translateX(-30px) translateY(-16px);
 
 			background-color: inherit;
 			clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
 		}
 
+		// first and last icon
 		&:first-child,
 		&:last-child {
 			.icon {
@@ -52,14 +53,11 @@
 
 		.icon {
 			position: absolute;
-
 			display: flex;
-			flex-shrink: 0; // do not shrink
 			justify-content: center;
 			align-items: center;
 
-			top: -1.5rem;
-			left: -5rem;
+			transform: translateX(-6rem) translateY(-2.7rem);
 
 			height: 3rem;
 			width: 3rem;
@@ -101,69 +99,52 @@
 		}
 
 		.entry {
-			width: 500px;
-
 			// left side
 
 			&:nth-child(odd) {
-				transform: translateX(-26.2rem);
+				margin-right: calc(50% + 3.5rem);
+
 				text-align: right;
-				flex-direction: row-reverse;
+				border-radius: 6px 0 6px 6px;
 
-				// triangle
+				// reverse triangle
 				&::before {
-					left: 100%;
-
-					height: 1rem;
-					width: 1rem;
-
-					clip-path: polygon(0 0, 100% 0, 0 100%);
-				}
-
-				.icon {
-					left: 35.1rem;
-				}
-
-				.item::before {
-					left: auto;
-					right: calc(-1 * 12px + 1px);
-					transform: scaleX(-1);
-				}
-
-				.item:first-child {
-					border-top-right-radius: 0;
+					transform: scaleX(-1) translateX(-15px) translateY(-16px);
 				}
 
 				.date {
-					text-align: left;
-					left: 640px;
-					transform: translateY(-50%);
+					left: calc(50% + 4rem);
 				}
 			}
 
 			// right side
 
 			&:nth-child(even) {
-				transform: translateX(14rem);
-				text-align: left;
-				margin-left: auto;
-
-				.icon {
-					left: -5.1rem;
-				}
+				margin-left: calc(50% + 3.5rem);
 
 				.date {
-					text-align: right;
-					left: -100px;
-					transform: translateX(-100%) translateY(-50%);
+					right: calc(50% + 4rem);
 				}
+			}
+
+			.item {
+				margin-top: -1rem;
+			}
+
+			.icon {
+				position: absolute;
+
+				left: 50%;
+				margin-right: -50%;
+				transform: translateX(-50%) translateY(calc(-50% - 1rem));
 			}
 
 			.date {
 				white-space: nowrap;
-				position: absolute;
-				top: 0;
 				font-size: 1rem;
+
+				position: absolute;
+				transform: translateY(-150%);
 			}
 		}
 	}
