@@ -21,7 +21,6 @@ body:
     id: description
     attributes:
       label: Description
-      description: supports markdown
       render: markdown
 
   - type: textarea
