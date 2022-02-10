@@ -17,11 +17,12 @@ body:
     validations:
       required: true
 
-  - type: markdown
+  - type: textarea
     id: description
     attributes:
       label: Description
       description: supports markdown
+      render: markdown
 
   - type: textarea
     id: media
