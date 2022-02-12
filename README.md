@@ -9,7 +9,7 @@ The War Brokers Timeline is a interactive website that lists the events happened
 Installing dependencies:
 
 ```
-yarn install
+yarn setup
 ```
 
 Testing on http://localhost:8000 with hot reload:
@@ -22,12 +22,6 @@ Building for production:
 
 ```bash
 yarn build
-```
-
-Test:
-
-```bash
-yarn test
 ```
 
 ## License
