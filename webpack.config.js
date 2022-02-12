@@ -31,7 +31,6 @@ module.exports = (_, argv) => {
 			new WasmPackPlugin({
 				crateDirectory: ".",
 				extraArgs: "--no-typescript",
-				forceWatch: true,
 			}),
 		],
 		watch: argv.mode !== "production",
