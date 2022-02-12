@@ -3,7 +3,7 @@ import fm from "front-matter"
 import fs from "fs"
 
 // data to be saved as data.json
-const data: any = {}
+let data: any[] = []
 
 const md = markdownIt()
 
@@ -29,9 +29,7 @@ function parseFile(filePath: string): void {
 
 	const filePathArr = filePath.split("/")
 
-	const date = filePathArr[filePathArr.length - 1].slice(0, 10) // remove .md
-	const category = filePathArr[filePathArr.length - 3]
-	const subcategory = filePathArr[filePathArr.length - 2]
+	let date = filePathArr[filePathArr.length - 1].slice(0, 10) // remove .md
 
 	/**
 	 * Checks
@@ -45,17 +43,42 @@ function parseFile(filePath: string): void {
 
 	const parsedMarkdown = fm(fs.readFileSync(filePath, "utf8"))
 
-	if (!data[category]) data[category] = {}
-	if (!data[category][subcategory]) data[category][subcategory] = {}
+	/**
+	 * Append data
+	 */
 
-	data[category][subcategory][date] = {
+	data.push({
+		date: date,
+		category: filePathArr[filePathArr.length - 3],
+		subcategory: filePathArr[filePathArr.length - 2],
 		description: md.render(parsedMarkdown.body),
 		...(parsedMarkdown.attributes as any),
-	}
+	})
+}
+
+function postProcess() {
+	// sort data by date
+
+	data = data.sort(
+		(a: any, b: any) =>
+			new Date(a.date as string).getTime() -
+			new Date(b.date as string).getTime()
+	)
+
+	// format date
+	data.map((entry) => {
+		entry.date = new Date(entry.date).toLocaleString("default", {
+			month: "short",
+			day: "numeric",
+			year: "numeric",
+		})
+		return entry
+	})
 }
 
 function main() {
 	recursiveParse("./data")
+	postProcess()
 
 	// save to file
 	fs.writeFileSync("./static/data.json", JSON.stringify(data))
