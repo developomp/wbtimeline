@@ -1,4 +1,4 @@
-use yew::{function_component, html, Children, Properties};
+use yew::{function_component, html, virtual_dom::VNode, Children, Properties};
 
 use crate::data::Data;
 
@@ -12,6 +12,12 @@ pub struct Props {
 
 #[function_component(Entry)]
 pub fn entry(props: &Props) -> Html {
+    let window = web_sys::window().expect("global window does not exists");
+    let document = window.document().expect("expecting a document on window");
+
+    let description = document.create_element("p").unwrap();
+    description.set_inner_html(&props.data.description);
+
     html! {
         <section class="entry">
             <div class="icon">
@@ -31,7 +37,7 @@ pub fn entry(props: &Props) -> Html {
 
                 <div class="content">
                     <h2>{&props.data.title}</h2>
-                    <p>{&props.data.description}</p>
+                    {VNode::VRef(description.into())}
                     if props.data.media.is_some() {
                         {for props.data.media.as_ref().unwrap().iter()}
                     }
