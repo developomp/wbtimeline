@@ -19,7 +19,7 @@ pub fn app() -> Html {
                     let res = Request::get("/data.json").send().await.unwrap();
 
                     if res.status() != 200 {
-                        log::info!("Failed to fetch data");
+                        log::error!("Failed to fetch data");
                     }
 
                     data.set(
@@ -34,8 +34,6 @@ pub fn app() -> Html {
     }
 
     let entries = data.iter().map(|data| {
-        log::debug!("{}", data.category);
-
         html! {
            <Entry data={Data {
                date: data.date.to_string(),
