@@ -11,5 +11,6 @@
 		"wbtimeline",
 		"webassembly"
 	],
-	"rust-analyzer.diagnostics.disabled": ["unresolved-macro-call"]
+	"rust-analyzer.diagnostics.disabled": ["unresolved-macro-call"],
+	"deno.enable": true
 }

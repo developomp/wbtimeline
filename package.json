@@ -2,12 +2,11 @@
 	"private": true,
 	"scripts": {
 		"setup": "yarn install && cargo install wasm-pack",
-		"gen": "ts-node generate.ts",
+		"gen": "deno run --allow-read=data/ --allow-write=static/data.json generate.ts",
 		"dev": "yarn gen && webpack-dev-server --mode development --open",
 		"build": "yarn gen && del dist/ && webpack --mode production"
 	},
 	"devDependencies": {
-		"@types/markdown-it": "^12.2.3",
 		"@wasm-tool/wasm-pack-plugin": "^1.6.0",
 		"copy-webpack-plugin": "^6.2.0",
 		"css-loader": "^4.3.0",
@@ -17,8 +16,6 @@
 		"sass": "^1.49.7",
 		"sass-loader": "^10.0.2",
 		"style-loader": "^1.3.0",
-		"ts-node": "^10.5.0",
-		"typescript": "^4.5.5",
 		"wasm-pack": "^0.10.2",
 		"webpack": "^4.44.2",
 		"webpack-cli": "^3.3.12",

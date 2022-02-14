@@ -1,6 +1,5 @@
-import markdownIt from "markdown-it"
-import fm from "front-matter"
-import fs from "fs"
+import markdownIt from "https://esm.sh/markdown-it"
+import fm from "https://esm.sh/front-matter"
 
 // data to be saved as data.json
 let data: any[] = []
@@ -8,14 +7,14 @@ let data: any[] = []
 const md = markdownIt()
 
 function recursiveParse(path: string): void {
-	const stats = fs.lstatSync(path)
+	const stats = Deno.lstatSync(path)
 
-	if (stats.isDirectory()) {
+	if (stats.isDirectory) {
 		// call this function for every files and directories in it
-		fs.readdirSync(path).map((childPath) => {
+		for (const childPath in Deno.readDirSync(path)) {
 			recursiveParse(`${path}/${childPath}`)
-		})
-	} else if (stats.isFile()) {
+		}
+	} else if (stats.isFile) {
 		parseFile(path)
 	}
 }
@@ -41,7 +40,7 @@ function parseFile(filePath: string): void {
 	 * Parse markdown
 	 */
 
-	const parsedMarkdown = fm(fs.readFileSync(filePath, "utf8"))
+	const parsedMarkdown = fm(Deno.readTextFileSync(filePath))
 
 	/**
 	 * Append data
@@ -81,7 +80,7 @@ function main() {
 	postProcess()
 
 	// save to file
-	fs.writeFileSync("./static/data.json", JSON.stringify(data))
+	Deno.writeTextFileSync("./static/data.json", JSON.stringify(data))
 }
 
 main()
