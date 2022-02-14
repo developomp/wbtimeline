@@ -8,5 +8,6 @@ pub struct Data {
     pub category: String,
     pub subcategory: String,
     pub media: Option<Vec<String>>,
+    // 0: URL, 1: text
     pub button: Option<[String; 2]>,
 }

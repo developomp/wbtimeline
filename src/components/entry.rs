@@ -10,6 +10,8 @@ pub struct Props {
     pub data: Data,
 }
 
+// todo: use subcategory and media
+
 #[function_component(Entry)]
 pub fn entry(props: &Props) -> Html {
     let window = web_sys::window().expect("global window does not exists");
@@ -40,6 +42,12 @@ pub fn entry(props: &Props) -> Html {
                     {VNode::VRef(description.into())}
                     if props.data.media.is_some() {
                         {for props.data.media.as_ref().unwrap().iter()}
+                    }
+
+                    if props.data.button.is_some() {
+                        <a class="button" href={String::from(props.data.button.as_ref().unwrap()[0].as_str())} target="_blank">
+                            {&props.data.button.as_ref().unwrap()[1]}
+                        </a>
                     }
                 </div>
             </div>
