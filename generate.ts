@@ -11,8 +11,8 @@ function recursiveParse(path: string): void {
 
 	if (stats.isDirectory) {
 		// call this function for every files and directories in it
-		for (const childPath in Deno.readDirSync(path)) {
-			recursiveParse(`${path}/${childPath}`)
+		for (const childPath of Deno.readDirSync(path)) {
+			recursiveParse(`${path}/${childPath.name}`)
 		}
 	} else if (stats.isFile) {
 		parseFile(path)
