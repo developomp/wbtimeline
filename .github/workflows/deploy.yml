@@ -3,19 +3,6 @@ on:
   push:
     branches:
       - master
-    paths:
-      - .github/workflows
-      - src
-      - static
-      - data
-      - styles
-      - bootstrap.js
-      - Cargo.toml
-      - Cargo.lock
-      - generate.ts
-      - package.json
-      - webpack.config.js
-      - yarn.lock
 
 jobs:
   build:
