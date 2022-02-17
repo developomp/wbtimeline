@@ -1,0 +1,68 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - src
+      - static
+      - data
+      - styles
+      - bootstrap.js
+      - Cargo.toml
+      - Cargo.lock
+      - generate.ts
+      - package.json
+      - webpack.config.js
+      - yarn.lock
+
+jobs:
+  build:
+    if: ${{ github.repository_owner == 'developomp' }}
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@master
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: yarn
+          cache-dependency-path: yarn.lock
+
+      - name: Prepare rust toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+
+      - name: Install dependencies
+        run: yarn setup
+
+      - name: Build
+        run: yarn build
+
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: dist
+          path: dist
+
+  deploy:
+    if: ${{ github.repository_owner == 'developomp' }}
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@master
+        with:
+          name: dist
+          path: dist
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_WBTIMELINE }}"
+          projectId: wbtimeline
