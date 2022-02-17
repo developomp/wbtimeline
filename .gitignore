@@ -8,5 +8,6 @@
 
 .DS_Store
 /static/data.json
+/.firebaserc
 **/*.rs.bk
 **/*.log
