@@ -71,6 +71,14 @@
 
 		.item {
 			.content {
+				padding-top: 0.5rem;
+
+				span.subcategory {
+					color: #79797c;
+					font-size: 0.9rem;
+					letter-spacing: 0.15rem;
+				}
+
 				h2 {
 					line-break: auto;
 				}
@@ -169,7 +177,7 @@
 				font-size: 1rem;
 
 				position: absolute;
-				transform: translateY(-150%);
+				transform: translateY(-50%);
 			}
 		}
 	}

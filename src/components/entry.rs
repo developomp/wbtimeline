@@ -58,6 +58,7 @@ pub fn entry(props: &Props) -> Html {
                 </div>
 
                 <div class="content">
+                    <span class="subcategory">{&props.data.subcategory}</span>
                     <h2>{&props.data.title}</h2>
                     {VNode::VRef(description.into())}
 
