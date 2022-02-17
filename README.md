@@ -6,6 +6,12 @@ The War Brokers Timeline is a interactive website that lists the events happened
 
 ## Commands
 
+Pre-requirements:
+
+- [deno](https://deno.land)
+- [yarn](https://yarnpkg.com)
+- [cargo](https://doc.rust-lang.org/cargo)
+
 Installing dependencies:
 
 ```
