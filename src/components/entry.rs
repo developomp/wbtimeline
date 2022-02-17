@@ -10,8 +10,6 @@ pub struct Props {
     pub data: Data,
 }
 
-// todo: use subcategory and media
-
 #[function_component(Entry)]
 pub fn entry(props: &Props) -> Html {
     let window = web_sys::window().expect("global window does not exists");
@@ -19,6 +17,28 @@ pub fn entry(props: &Props) -> Html {
 
     let description = document.create_element("p").unwrap();
     description.set_inner_html(&props.data.description);
+
+    let mut media = Vec::new();
+
+    if props.data.media.is_some() {
+        for media_link in props.data.media.as_ref().unwrap() {
+            // if the link is an image
+            if media_link.starts_with("/img") {
+                media.push(html! {
+                    <img src={media_link.to_string()} />
+                });
+            }
+
+            // if the link is a youtube video
+            if media_link.contains("youtube.com") {
+                media.push(html! {
+                    <div class="video-container">
+                        <iframe src={media_link.to_string()} />
+                    </div>
+                });
+            }
+        }
+    }
 
     html! {
         <section class="entry">
@@ -40,8 +60,9 @@ pub fn entry(props: &Props) -> Html {
                 <div class="content">
                     <h2>{&props.data.title}</h2>
                     {VNode::VRef(description.into())}
+
                     if props.data.media.is_some() {
-                        {for props.data.media.as_ref().unwrap().iter()}
+                        {for media}
                     }
 
                     if props.data.button.is_some() {

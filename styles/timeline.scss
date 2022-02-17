@@ -74,6 +74,31 @@
 				h2 {
 					line-break: auto;
 				}
+
+				img {
+					width: 100%;
+				}
+
+				.video-container {
+					overflow: hidden;
+					position: relative;
+					width: 100%;
+
+					iframe {
+						border: 0;
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+					}
+
+					&::after {
+						padding-top: 56.25%;
+						display: block;
+						content: "";
+					}
+				}
 			}
 		}
 

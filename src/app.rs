@@ -41,8 +41,8 @@ pub fn app() -> Html {
                description: data.description.to_string(),
                category: data.category.to_string(),
                subcategory: data.subcategory.to_string(),
-               media: None,
-               button: None,
+               media: data.media.clone(),
+               button: data.button.clone(),
            }} />
         }
     });
