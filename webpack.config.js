@@ -5,9 +5,14 @@ const CopyWebpackPlugin = require("copy-webpack-plugin")
 const distPath = path.resolve(__dirname, "dist")
 module.exports = (_, argv) => {
 	return {
+		experiments: {
+			asyncWebAssembly: true,
+		},
 		devServer: {
-			contentBase: distPath,
-			compress: argv.mode === "production",
+			static: {
+				directory: distPath,
+			},
+			compress: true,
 			port: 8000,
 		},
 		entry: "./bootstrap.js",
@@ -33,6 +38,5 @@ module.exports = (_, argv) => {
 				extraArgs: "--no-typescript",
 			}),
 		],
-		watch: argv.mode !== "production",
 	}
 }

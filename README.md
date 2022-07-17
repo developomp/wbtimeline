@@ -2,34 +2,9 @@
 
 [![what's this?](https://img.shields.io/badge/what's_this%3F-grey?style=for-the-badge)](https://developomp.com/portfolio/wbtimeline)
 [![discord](https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/aQqamSCUcS/)
+[![contributing](https://img.shields.io/badge/contributing-yellow?style=for-the-badge)](./CONTRIBUTING.md)
 
-The War Brokers Timeline is a interactive website that lists the events happened in the [War Brokers](https://warbrokers.io) community in a chronological order.
-
-## Commands
-
-Pre-requirements:
-
-- [deno](https://deno.land)
-- [yarn](https://yarnpkg.com)
-- [cargo](https://doc.rust-lang.org/cargo)
-
-Installing dependencies:
-
-```
-yarn setup
-```
-
-Testing on http://localhost:8000 with hot reload:
-
-```bash
-yarn dev
-```
-
-Building for production:
-
-```bash
-yarn build
-```
+The War Brokers Timeline is a website that lists various events happened in the [War Brokers](https://warbrokers.io) community in a chronological order.
 
 ## License
 
